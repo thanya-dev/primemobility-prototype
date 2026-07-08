@@ -1,16 +1,68 @@
-# React + Vite
+# PrimeMobility Prototype
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This is the prototype web application for **PrimeMobility**, an end-to-end EV fleet management and mobility solution provider. The application is built using React and Vite, focusing on a modern, dynamic, and premium user experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Modern UI/UX**: Designed with a sleek, dark-themed, and responsive interface tailored for desktop and mobile.
+- **Dynamic Animations**: Smooth transitions, hover effects, and automatic sliders to keep users engaged.
+- **Responsive Layout**: Fluid design ensuring great display across various screen sizes (max width 1224px).
+- **Core Sections**:
+  - Hero Section
+  - Company Overview & Statistics
+  - What We Do (Services grid)
+  - Why PrimeMobility (Animated Slider)
+  - FAQ (Dynamic question sets)
+  - Contact Us
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18**
+- **Vite**
+- **CSS3 (Vanilla)** - Extensive use of CSS variables, Flexbox, CSS Grid, and custom animations.
+- **React Router DOM** - For smooth single-page application navigation and scroll restoration.
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### Installation
+
+1. Clone this repository or download the source code.
+2. Navigate to the project directory:
+   ```bash
+   cd primemobility-prototype
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To start the local development server:
+
+```bash
+npm run dev
+```
+
+Open your browser and visit the local URL (usually `http://localhost:5173`) to view the application.
+
+### Building for Production
+
+To create a production-ready build:
+
+```bash
+npm run build
+```
+
+This will generate a `dist` folder containing the optimized static files ready for deployment.
+
+## Project Structure
+
+- `src/components/`: Reusable UI components (e.g., `ContactUs.jsx`, `Faq.jsx`)
+- `src/pages/`: Main page layouts (e.g., `Home.jsx`, `AboutUs.jsx`)
+- `src/index.css`: Global styling, CSS tokens, variables, and utility classes
+- `src/App.jsx`: Root component and routing logic
