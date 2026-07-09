@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 export default function AboutUs() {
-  const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
   const [activeWhyUs, setActiveWhyUs] = useState(0);
 
   const whyUsData = [
@@ -177,48 +176,21 @@ export default function AboutUs() {
           <article className="ceo-message">
             <h2 style={{marginBottom: 'var(--spacing-md)'}}>CEO Greeting</h2>
             
-            <h3 style={{marginBottom: 'var(--spacing-xs)'}}>Introduction</h3>
             <p>
-              ในนามของ ไพร์มโมบิลิตี้ เรามุ่งมั่นในการให้บริการบริหารจัดการกองทัพยานยนต์ไฟฟ้าเชิงพาณิชย์ในประเทศไทย ผมรู้สึกเป็นเกียรติอย่างยิ่งที่ได้ต้อนรับทุกท่านสู่ EV Fleet Management System ของเรา
+              ในนามของ <strong>ไพร์ม โมบิลิตี้</strong> ผมรู้สึกเป็นเกียรติอย่างยิ่งที่ได้ต้อนรับทุกท่านสู่ <strong>EV Fleet Management System</strong> ของเรา ผู้ให้บริการ <strong>โซลูชันบริหารจัดการกองทัพยานยนต์ไฟฟ้าเชิงพาณิชย์แบบครบวงจร</strong> ที่มุ่งสนับสนุนองค์กรให้เปลี่ยนผ่านสู่การขนส่งที่มีประสิทธิภาพและยั่งยืน
             </p>
             <p>
-              ในโลกที่กำลังเปลี่ยนผ่านไปสู่การขนส่งที่ยั่งยืนอย่างรวดเร็ว เรายืนหยัดเป็นแนวหน้าของการปฏิวัติการขับเคลื่อนสีเขียวในประเทศไทย พันธกิจของเราไม่ได้จำกัดอยู่เพียงแค่การบริหารจัดการกองทัพยานยนต์ แต่เราเป็นผู้จุดประกายการเปลี่ยนแปลงด้านสิ่งแวดล้อม ประสิทธิภาพทางเศรษฐกิจ และความก้าวหน้าทางเทคโนโลยีในภาคยานยนต์เชิงพาณิชย์
+              ปัจจุบัน อุตสาหกรรมการขนส่งกำลังก้าวเข้าสู่ยุคของยานยนต์ไฟฟ้าและเทคโนโลยีดิจิทัล เราเชื่อว่าอนาคตของการบริหารจัดการกองทัพยานยนต์ต้องเป็น <strong>Smart, Connected และ Data-Driven</strong> เพื่อช่วยให้องค์กรสามารถ <strong>ลดต้นทุนการดำเนินงาน เพิ่มประสิทธิภาพการใช้ยานพาหนะ และลดผลกระทบต่อสิ่งแวดล้อม</strong> ได้อย่างเป็นรูปธรรม
             </p>
-  
-            <div className={`read-more-section ${isReadMoreOpen ? 'open' : ''}`}>
-              <div 
-                className="read-more-btn" 
-                onClick={() => setIsReadMoreOpen(!isReadMoreOpen)}
-                style={{ cursor: 'pointer', color: 'var(--accent)', fontWeight: 600 }}
-              >
-                Read More / อ่านเพิ่มเติม {isReadMoreOpen ? '▲' : '▼'}
-              </div>
-              <div className="read-more-wrapper" style={{ 
-                display: 'grid', 
-                gridTemplateRows: isReadMoreOpen ? '1fr' : '0fr', 
-                transition: 'grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1)' 
-              }}>
-                <div style={{ overflow: 'hidden' }}>
-                  <div className="read-more-content" style={{marginTop: 'var(--spacing-sm)'}}>
-                    <h3 style={{marginBottom: 'var(--spacing-xs)', marginTop: 'var(--spacing-sm)'}}>Our Commitment</h3>
-                    <p>
-                      เราเชื่อว่าอนาคตของการขนส่งไม่ได้เป็นเพียงแค่ระบบไฟฟ้า แต่ยังต้องชาญฉลาด เชื่อมต่อ และได้รับการปรับปรุงให้มีประสิทธิภาพสูงสุด ด้วยโซลูชันการบริหารจัดการกองทัพยานยนต์แบบครบวงจรของเรา เราช่วยให้ธุรกิจต่างๆ ลดผลกระทบต่อสิ่งแวดล้อม ควบคู่ไปกับการยกระดับประสิทธิภาพการดำเนินงานและลดต้นทุนการเป็นเจ้าของโดยรวม
-                    </p>
-                    <p>
-                      การเดินทางของเราเริ่มต้นด้วยวิสัยทัศน์ที่เรียบง่าย นั่นคือการเร่งการเปลี่ยนผ่านของประเทศไทยไปสู่การขนส่งเชิงพาณิชย์ที่ยั่งยืน วันนี้ วิสัยทัศน์นั้นขับเคลื่อนทุกสิ่งที่เราทำ ตั้งแต่ระบบ Telematics ที่ทันสมัย ไปจนถึงกลยุทธ์การเพิ่มประสิทธิภาพด้วยข้อมูล และการสนับสนุนลูกค้าอย่างทุ่มเทของเรา
-                    </p>
-      
-                    <h3 style={{marginBottom: 'var(--spacing-xs)', marginTop: 'var(--spacing-sm)'}}>Future Vision</h3>
-                    <p>
-                      ในขณะที่เราก้าวไปข้างหน้าบนเส้นทางที่น่าตื่นเต้นนี้ เราขอเชิญชวนท่านเข้าร่วมกับเราในการกำหนดนิยามใหม่ของความเป็นไปได้ในการดำเนินงานกองทัพยานยนต์เชิงพาณิชย์ ร่วมกัน เราสามารถสร้างอนาคตที่สะอาดกว่า มีประสิทธิภาพมากขึ้น และมั่งคั่งยิ่งขึ้นสำหรับประเทศไทยและ beyond
-                    </p>
-                    <p>
-                      ขอขอบคุณทุกท่านที่ให้ความสนใจในบริษัทของเรา เราหวังเป็นอย่างยิ่งที่จะได้เป็นส่วนหนึ่งในการขับเคลื่อนการเดินทางของท่านสู่ความเป็นเลิศด้านยานยนต์ไฟฟ้าที่ยั่งยืน
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p>
+              ด้วยโซลูชันของเรา ซึ่งประกอบด้วย <strong>Telematics, Fleet Management Platform และ Data Analytics</strong> เราช่วยให้ลูกค้าสามารถติดตาม วิเคราะห์ และบริหารจัดการกองทัพยานยนต์ได้อย่างมีประสิทธิภาพ พร้อมยกระดับการตัดสินใจด้วยข้อมูลที่ถูกต้องและแม่นยำ
+            </p>
+            <p>
+              <strong>วิสัยทัศน์ของเราคือการเป็นผู้นำด้าน EV Fleet Management ของประเทศไทย</strong> พร้อมขับเคลื่อนการเปลี่ยนผ่านสู่ระบบขนส่งเชิงพาณิชย์ที่สะอาด ชาญฉลาด และยั่งยืน ผ่านนวัตกรรม เทคโนโลยี และการให้บริการที่เป็นเลิศ
+            </p>
+            <p>
+              ขอขอบคุณทุกท่านที่ให้ความไว้วางใจในไพร์ม โมบิลิตี้ เราหวังเป็นอย่างยิ่งว่าจะได้เป็นพันธมิตรในการร่วมสร้างอนาคตของการขนส่งที่มีประสิทธิภาพ พร้อมเติบโตไปด้วยกันอย่างยั่งยืน
+            </p>
           </article>
         </div>
       </section>
@@ -314,9 +286,9 @@ export default function AboutUs() {
               transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' 
             }}>
               {whyUsData.map((item, idx) => (
-                <div key={idx} style={{ flex: '0 0 100%', display: 'flex', flexDirection: 'row' }}>
+                <div key={idx} className="why-us-slide" style={{ flex: '0 0 100%', display: 'flex' }}>
                   {/* Image Left */}
-                  <div style={{ flex: '1 1 50%' }}>
+                  <div className="why-us-img-container">
                     <img 
                       src={item.img} 
                       alt={item.title} 
@@ -324,16 +296,16 @@ export default function AboutUs() {
                     />
                   </div>
                   {/* Content Right */}
-                  <div style={{ flex: '1 1 50%', padding: '4rem 3rem 6rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <h3 style={{ color: 'var(--primary)', fontSize: '2rem', marginBottom: '1rem' }}>{item.title}</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem', lineHeight: '1.6' }}>{item.desc}</p>
+                  <div className="why-us-content">
+                    <h3 style={{ color: 'var(--primary)', marginBottom: '1rem' }}>{item.title}</h3>
+                    <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Slider Controls - Absolute positioned over the content */}
-            <div style={{ position: 'absolute', bottom: '2rem', right: '3rem', display: 'flex', gap: '1rem', zIndex: 10 }}>
+            <div className="why-us-controls" style={{ position: 'absolute', zIndex: 10, display: 'flex' }}>
               <button 
                 onClick={() => setActiveWhyUs(prev => prev === 0 ? whyUsData.length - 1 : prev - 1)}
                 style={{ width: '48px', height: '48px', borderRadius: '50%', border: '1px solid var(--border-color)', background: 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', fontSize: '1.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}

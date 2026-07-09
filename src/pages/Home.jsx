@@ -48,8 +48,11 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <div className="badge" style={{marginBottom: '1rem'}}>EV Fleet Management</div>
-          <h1><span className="desktop-nowrap">PrimeMobility EV Fleet ครบวงจร</span><br className="desktop-break" /> ที่เร่งการเติบโตของธุรกิจของคุณ</h1>
+          <div className="badge" style={{marginBottom: '1rem'}}>PrimeMobility</div>
+          <h1>
+            <span style={{ color: 'var(--accent)', display: 'block', marginBottom: '0.25rem' }}>Accelerate into the Future</span>
+            <span className="desktop-nowrap">EV Fleet ครบวงจร</span><br className="desktop-break" /> ที่เร่งการเติบโตของธุรกิจคุณ
+          </h1>
           <p>
             An end-to-end EV fleet solution that helps accelerate your business growth.
           </p>
