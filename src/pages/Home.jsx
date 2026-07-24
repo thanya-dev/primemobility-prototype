@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect, useRef } from 'react';
 import ContactUs from '../components/ContactUs';
 import Faq from '../components/Faq';
@@ -6,6 +7,7 @@ import vanImg from '../assets/van.png';
 import busImg from '../assets/bus.png';
 
 export default function Home() {
+  const { t } = useTranslation();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeEvImage, setActiveEvImage] = useState(0);
   const [activeVehicleSlide, setActiveVehicleSlide] = useState(0);
@@ -39,20 +41,20 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "ระบบช่วยให้เราจัดการฟลีทรถได้ง่ายขึ้นมาก ประหยัดเวลาและค่าใช้จ่ายได้จริง",
-      author: "คุณสมชาย ใจดี",
-      role: "ผู้จัดการฝ่ายขนส่ง, บริษัท โลจิสติกส์ ไทย จำกัด",
+      quote: t(t("The system helps us manage our vehicle fleet much more easily. It truly saves time and costs.")),
+      author: t(t("Somchai Jaidee")),
+      role: t(t("Transport Manager, Thai Logistics Co., Ltd.")),
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     {
-      quote: "การบริการที่ครบวงจรทำให้เราเปลี่ยนผ่านไปสู่ EV ได้อย่างมั่นใจ ไร้รอยต่อ ทีมงานดูแลดีมาก",
-      author: "คุณสมหญิง เก่งงาน",
-      role: "ผู้อำนวยการฝ่ายปฏิบัติการ, Green Transport Corp.",
+      quote: t(t("The comprehensive service allowed us to transition to EV with confidence and seamlessly. The team takes great care of us.")),
+      author: t(t("Somying Keng-ngan")),
+      role: t(t("Operations Director, Green Transport Corp.")),
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     {
-      quote: "เราสามารถติดตามสถานะรถได้แบบเรียลไทม์ และยังประหยัดต้นทุนพลังงานได้อย่างชัดเจน",
-      author: "คุณวิชัย รักชาติ",
+      quote: t(t("We can track the vehicle status in real-time, and it clearly saves energy costs.")),
+      author: t(t("Wichai Rakchart")),
       role: "CEO, Eco Delivery",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     }
@@ -80,17 +82,17 @@ export default function Home() {
           <div className="badge" style={{marginBottom: '1rem'}}>PrimeMobility</div>
           <h1>
             <span style={{ color: 'var(--accent)', display: 'block', marginBottom: '0.25rem' }}>Accelerate into the Future</span>
-            <span className="desktop-nowrap">EV Fleet ครบวงจร</span><br className="desktop-break" /> ที่เร่งการเติบโตของธุรกิจคุณ
+            <span dangerouslySetInnerHTML={{ __html: t('<span className="desktop-nowrap">Comprehensive EV Fleet</span><br className="desktop-break" /> that accelerates your business growth') }} />
           </h1>
           <p>
             An end-to-end EV fleet solution that helps accelerate your business growth.
           </p>
           <div className="hero-actions">
-            <a href="https://primemobility.co.th/contact-2/" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{textDecoration: 'none'}}>Contact Us</a>
-            <a href="https://primemobility.co.th/our-service/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{textDecoration: 'none'}}>Our Services</a>
+            <a href="https://primemobility.co.th/contact-2/" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{textDecoration: 'none'}}>{t("Contact Us")}</a>
+            <a href="https://primemobility.co.th/our-service/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{textDecoration: 'none'}}>{t("Our Services")}</a>
           </div>
           <div className="hero-trust">
-            <small>ได้รับความไว้วางใจจากองค์กรชั้นนำ</small>
+            <small>{t("Trusted by leading organizations")}</small>
           </div>
         </div>
       </section>
@@ -100,9 +102,7 @@ export default function Home() {
         <div style={{ padding: '0 max(var(--spacing-md), calc((100% - 1224px) / 2))' }}>
           <div className="text-center mb-lg">
             <h2>Our Products</h2>
-            <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }}>
-              เพราะทุกธุรกิจมีความต้องการที่แตกต่าง เรามีโซลูชันลีสซิ่งที่ช่วยให้ธุรกิจของคุณลงทุนได้อย่างคุ้มค่า<br />ลดต้นทุน และพร้อมเติบโตสู่อนาคต
-            </p>
+            <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t('Because every business has different needs, we offer leasing solutions that help your business invest cost-effectively,<br />reduce costs, and be ready to grow into the future.') }} />
           </div>
         </div>
         <div style={{ position: 'relative', width: '100%' }}>
@@ -172,21 +172,21 @@ export default function Home() {
             
             {[
               {
-                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                category: t('Commercial EV'),
                 title: 'EV Truck',
-                subtitle: 'ครอบคลุมทั้งรถกระบะ รถบรรทุกขนาดเล็ก จนถึงรถหัวลากขนาดใหญ่ ตอบโจทย์การขนส่งทางไกลทั่วประเทศ',
+                subtitle: t('Covering everything from pickup trucks and light trucks to large trailer heads, answering the needs of long-distance transportation nationwide.'),
                 image: truckImg
               },
               {
-                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                category: t('Commercial EV'),
                 title: 'EV Van',
-                subtitle: 'รถตู้ไฟฟ้าเชิงพาณิชย์ ตอบโจทย์ทุกเป้าหมายทางธุรกิจ ทั้งในมุมรถรับส่งสำหรับองค์กรหรือดำเนินธุรกิจขนส่ง',
+                subtitle: t('Commercial electric vans that answer every business goal, whether as corporate shuttle vehicles or for transportation business.'),
                 image: vanImg
               },
               {
-                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                category: t('Commercial EV'),
                 title: 'EV Bus',
-                subtitle: 'เปลี่ยนสวัสดิการรถรับส่งสำหรับ องค์กร ให้เป็น สวัสดิการเพื่อโลก ด้วยรถบัสไฟฟ้า ตอบโจทย์ทั้ง ลดต้นทุนค่าเชื้อเพลิง ส่งเสริมภาพลักษณ์ และส่งเสริมความยั่งยืน',
+                subtitle: t('Transform corporate shuttle benefits into benefits for the planet with electric buses. Answers the needs of reducing fuel costs, enhancing image, and promoting sustainability.'),
                 image: busImg
               }
             ].map((item, idx) => (
@@ -270,7 +270,7 @@ export default function Home() {
             <div className="badge" style={{marginBottom: '1rem', backgroundColor: 'rgba(77, 224, 138, 0.1)', color: 'var(--primary)', display: 'inline-block', padding: '0.25rem 0.75rem', borderRadius: '999px', fontSize: '0.875rem', fontWeight: '600'}}>All-in-One Service</div>
             <h2 style={{ color: 'var(--primary)', marginBottom: '1rem' }}>EV Fleet Solutions for Modern Businesses</h2>
             <p className="intro-text" style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.125rem', color: 'var(--text-muted)' }}>
-              PrimeMobility นำเสนอบริการแบบครบวงจรในแพ็กเกจเดียว เพื่อความสะดวกและประสิทธิภาพสูงสุดสำหรับธุรกิจของคุณ
+              PrimeMobility offers comprehensive services in a single package for maximum convenience and efficiency for your business.
             </p>
           </div>
           
@@ -280,7 +280,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{width: '32px', height: '32px'}}><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
               <h3 style={{ fontSize: '1.125rem', marginBottom: '0.75rem', color: 'var(--primary)', fontWeight: '700', justifyContent: 'center' }}>EV Sourcing & Rental</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>ตัวเลือกรถ EV ที่หลากหลาย ตอบโจทย์ทุกการใช้งาน</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>{t("A wide variety of EV options to meet every usage need")}</p>
             </article>
             
             <article className="card" style={{ backgroundColor: '#FFFFFF', color: 'var(--text-main)', textAlign: 'center', padding: '2.5rem 1.5rem', border: '1px solid var(--border-color)', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', borderRadius: 'var(--radius-lg)' }}>
@@ -288,7 +288,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{width: '32px', height: '32px'}}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
               </div>
               <h3 style={{ fontSize: '1.125rem', marginBottom: '0.75rem', color: 'var(--primary)', fontWeight: '700', justifyContent: 'center' }}>Insurance & Maintenance</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>ดูแลครบวงจรเพื่อความอุ่นใจตลอดอายุสัญญา</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>{t("Comprehensive care for peace of mind throughout the contract period")}</p>
             </article>
             
             <article className="card" style={{ backgroundColor: '#FFFFFF', color: 'var(--text-main)', textAlign: 'center', padding: '2.5rem 1.5rem', border: '1px solid var(--border-color)', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', borderRadius: 'var(--radius-lg)' }}>
@@ -296,7 +296,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{width: '32px', height: '32px'}}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
               </div>
               <h3 style={{ fontSize: '1.125rem', marginBottom: '0.75rem', color: 'var(--primary)', fontWeight: '700', justifyContent: 'center' }}>Charging Equipment</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>พร้อมติดตั้งและให้คำปรึกษาเรื่องสถานีชาร์จ</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>{t("Ready to install and provide consultation on charging stations")}</p>
             </article>
             
             <article className="card" style={{ backgroundColor: '#FFFFFF', color: 'var(--text-main)', textAlign: 'center', padding: '2.5rem 1.5rem', border: '1px solid var(--border-color)', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', borderRadius: 'var(--radius-lg)' }}>
@@ -304,7 +304,7 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{width: '32px', height: '32px'}}><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
               </div>
               <h3 style={{ fontSize: '1.125rem', marginBottom: '0.75rem', color: 'var(--primary)', fontWeight: '700', justifyContent: 'center' }}>Fleet Management System</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>ซอฟต์แวร์อัจฉริยะ ติดตามและวิเคราะห์ข้อมูลแบบเรียลไทม์</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.5' }}>{t("Smart software for tracking and analyzing data in real-time")}</p>
             </article>
           </div>
         </div>
@@ -358,7 +358,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--primary)', fontSize: '1.125rem' }}>Reduce Operational Costs</h3>
-                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>ประหยัดค่าใช้จ่ายด้านพลังงานและการซ่อมบำรุงในระยะยาว</p>
+                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>{t("Save on energy and maintenance costs in the long term.")}</p>
                 </div>
               </div>
               <div className="benefit-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -367,7 +367,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--primary)', fontSize: '1.125rem' }}>Increase Operational Efficiency</h3>
-                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>บริหารจัดการเส้นทางและการใช้งานรถได้อย่างคุ้มค่าสูงสุด</p>
+                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>{t("Manage routes and vehicle utilization for maximum cost-effectiveness.")}</p>
                 </div>
               </div>
               <div className="benefit-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -376,7 +376,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--primary)', fontSize: '1.125rem' }}>Drive Sustainability</h3>
-                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>ลดการปล่อยก๊าซคาร์บอนและบรรลุเป้าหมายด้านสิ่งแวดล้อม</p>
+                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>{t("Reduce carbon emissions and achieve environmental goals.")}</p>
                 </div>
               </div>
               <div className="benefit-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -385,7 +385,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--primary)', fontSize: '1.125rem' }}>Smart Tracking System</h3>
-                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>ตรวจสอบสถานะรถและแบตเตอรี่ได้แบบเรียลไทม์ตลอด 24 ชั่วโมง</p>
+                  <p style={{ margin: 0, color: 'var(--text-muted)' }}>{t("Check vehicle and battery status in real-time 24/7.")}</p>
                 </div>
               </div>
             </div>
@@ -398,7 +398,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-lg">
             <h2 style={{color: 'var(--text-inverse)'}}>All Services</h2>
-            <p style={{color: 'rgba(255, 255, 255, 0.7)'}}>โซลูชันและบริการแบบครบวงจรที่ออกแบบมาเพื่อระบบฟลีท EV ของคุณ</p>
+            <p style={{color: 'rgba(255, 255, 255, 0.7)'}}>{t("Comprehensive solutions and services designed for your EV fleet system.")}</p>
           </div>
           <div className="grid grid-cols-4" style={{ gap: '1.5rem' }}>
             <article className="card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: 'var(--radius-lg)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease' }}>
@@ -406,32 +406,32 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" style={{width: '28px', height: '28px'}}><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-inverse)', lineHeight: '1.4' }}>EV Sourcing and Leasing</h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>PrimeMobility ให้บริการเช่ารถยนต์ไฟฟ้าที่มีตัวเลือกรุ่นหลากหลาย ไม่จำกัดเฉพาะผู้ผลิตหรือรุ่นใดรุ่นหนึ่ง ไม่ว่าจะเป็นรถยนต์นั่งส่วนบุคคลไปจนถึงรถบรรทุก จากทุกประเทศทั่วโลก เพื่อตอบสนองทุกความต้องการของธุรกิจคุณ</p>
-              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>อ่านเพิ่มเติม <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
+              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>{t("PrimeMobility provides electric vehicle leasing with a wide variety of models, not limited to any specific manufacturer or model. From passenger cars to trucks from all over the world, to meet all your business needs.")}</p>
+              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>Read More <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
             </article>
             <article className="card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: 'var(--radius-lg)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease' }}>
               <div className="icon-wrapper" style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(77, 224, 138, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" style={{width: '28px', height: '28px'}}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-inverse)', lineHeight: '1.4' }}>EV Charger and Installation Services</h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>PrimeMobility พร้อมให้คำปรึกษาในการเลือกจำนวนและยี่ห้อของเครื่องชาร์จที่เหมาะสมกับความต้องการของคุณ และยังให้บริการติดตั้งโดยทีมงานผู้เชี่ยวชาญ</p>
-              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>อ่านเพิ่มเติม <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
+              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>{t("PrimeMobility is ready to provide consultation on choosing the right quantity and brand of chargers for your needs, and also provides installation services by a team of experts.")}</p>
+              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>Read More <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
             </article>
             <article className="card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: 'var(--radius-lg)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease' }}>
               <div className="icon-wrapper" style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(77, 224, 138, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" style={{width: '28px', height: '28px'}}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-inverse)', lineHeight: '1.4' }}>Insurance and Maintenance Services</h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>PrimeMobility ใส่ใจในความปลอดภัยของคุณ จึงมีบริการประกันภัยที่ครอบคลุม และการบำรุงรักษารถยนต์เป็นประจำ เพื่อให้คุณมั่นใจได้ว่ารถยนต์ไฟฟ้าทุกคันอยู่ในสภาพพร้อมใช้งานและปลอดภัยเสมอ</p>
-              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>อ่านเพิ่มเติม <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
+              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>{t("PrimeMobility cares about your safety, so we offer comprehensive insurance and regular vehicle maintenance services to ensure that every electric vehicle is always in a ready-to-use and safe condition.")}</p>
+              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>Read More <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
             </article>
             <article className="card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: 'var(--radius-lg)', padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%', transition: 'all 0.3s ease' }}>
               <div className="icon-wrapper" style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(77, 224, 138, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" style={{width: '28px', height: '28px'}}><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-inverse)', lineHeight: '1.4' }}>EV Fleet Management System Services</h3>
-              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>ยกระดับการดำเนินงานของธุรกิจคุณด้วยระบบบริหารจัดการยานยนต์ไฟฟ้าของเรา ที่จะช่วยให้คุณบริหารจัดการยานพาหนะได้อย่างมีประสิทธิภาพ ลดต้นทุน และเพิ่มผลผลิต</p>
-              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>อ่านเพิ่มเติม <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
+              <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.9rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>{t("Elevate your business operations with our EV fleet management system that will help you manage vehicles efficiently, reduce costs, and increase productivity.")}</p>
+              <button className="btn-link" style={{ alignSelf: 'flex-start', color: 'var(--accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: 0, textDecoration: 'none' }}>Read More <span style={{fontSize: '1.2rem'}}>&rarr;</span></button>
             </article>
           </div>
         </div>
@@ -442,32 +442,32 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-lg">
             <h2>Why Choose PrimeMobility</h2>
-            <p>ความมุ่งมั่นในความเป็นเลิศทำให้เราเป็นพันธมิตรที่ได้รับความไว้วางใจสำหรับระบบฟลีทสมัยใหม่</p>
+            <p>{t("Our commitment to excellence makes us a trusted partner for modern fleet systems.")}</p>
           </div>
           <div className="grid grid-cols-3">
             <article className="card trust-card">
               <h3>End-to-End Solutions</h3>
-              <p>บริการแบบเบ็ดเสร็จตั้งแต่จัดหารถไปจนถึงระบบซอฟต์แวร์</p>
+              <p>{t("Turnkey services from vehicle sourcing to software systems.")}</p>
             </article>
             <article className="card trust-card">
               <h3>Expert Team</h3>
-              <p>ทีมงานมากประสบการณ์ที่พร้อมให้คำปรึกษาและดูแลคุณ</p>
+              <p>{t("Experienced team ready to provide consultation and care for you.")}</p>
             </article>
             <article className="card trust-card">
               <h3>Flexible Options</h3>
-              <p>สามารถปรับแต่งแพ็กเกจให้เข้ากับความต้องการของธุรกิจคุณ</p>
+              <p>{t("Packages can be customized to suit your business needs.")}</p>
             </article>
             <article className="card trust-card">
               <h3>Smart Technology</h3>
-              <p>ใช้ซอฟต์แวร์ล้ำสมัยในการจัดการและติดตามรถของคุณ</p>
+              <p>{t("Use cutting-edge software to manage and track your vehicles.")}</p>
             </article>
             <article className="card trust-card">
               <h3>Reliable Services</h3>
-              <p>มีทีมสนับสนุนตลอดการใช้งาน พร้อมแก้ไขปัญหาอย่างรวดเร็ว</p>
+              <p>{t("Support team available throughout usage, ready to solve problems quickly.")}</p>
             </article>
             <article className="card trust-card">
               <h3>Drive Towards Sustainability</h3>
-              <p>ช่วยลดคาร์บอนฟุตพริ้นท์และสร้างภาพลักษณ์ที่ดีให้องค์กร</p>
+              <p>{t("Helps reduce carbon footprint and build a good image for the organization.")}</p>
             </article>
           </div>
         </div>
@@ -481,31 +481,31 @@ export default function Home() {
             <div className="step">
               <div className="step-circle">1</div>
               <h3>Consultation</h3>
-              <p>ทีมงานวิเคราะห์ความต้องการและปัญหาของธุรกิจ</p>
+              <p>{t("Our team analyzes your business needs and pain points.")}</p>
             </div>
             <div className="step-connector"></div>
             <div className="step">
               <div className="step-circle">2</div>
               <h3>Planning</h3>
-              <p>ออกแบบโซลูชันและเลือกรถ EV ที่เหมาะสม</p>
+              <p>{t("Design solutions and select suitable EV models.")}</p>
             </div>
             <div className="step-connector"></div>
             <div className="step">
               <div className="step-circle">3</div>
               <h3>Implementation</h3>
-              <p>ส่งมอบรถ ติดตั้งอุปกรณ์ และวางระบบซอฟต์แวร์</p>
+              <p>{t("Deliver vehicles, install equipment, and set up software systems.")}</p>
             </div>
             <div className="step-connector"></div>
             <div className="step">
               <div className="step-circle">4</div>
               <h3>Monitoring</h3>
-              <p>ดูแลและมอนิเตอร์สถานะผ่านระบบเรียลไทม์</p>
+              <p>{t("Care and monitor status through a real-time system.")}</p>
             </div>
             <div className="step-connector"></div>
             <div className="step">
               <div className="step-circle">5</div>
               <h3>Optimization</h3>
-              <p>วิเคราะห์ข้อมูลเพื่อลดต้นทุนอย่างต่อเนื่อง</p>
+              <p>{t("Analyze data to continuously reduce costs.")}</p>
             </div>
           </div>
         </div>
@@ -515,7 +515,7 @@ export default function Home() {
       <section className="testimonials section-spacing">
         <div className="container text-center">
           <h2>Testimonials</h2>
-          <p className="mb-lg">เสียงตอบรับและประสบการณ์จริงจากลูกค้าของเรา</p>
+          <p className="mb-lg">{t("Feedback and real experiences from our customers.")}</p>
           <div className="testimonial-slider" style={{position: 'relative', minHeight: '280px', overflow: 'hidden'}}>
             {testimonials.map((t, idx) => (
               <article 
@@ -565,7 +565,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-lg">
             <h2>Industries We Serve</h2>
-            <p>โซลูชันยานยนต์ไฟฟ้าที่ปรับแต่งได้สำหรับหลากหลายภาคธุรกิจ</p>
+            <p>{t("Customizable electric vehicle solutions for various business sectors.")}</p>
           </div>
           <div className="grid grid-cols-3">
             <article className="card industry-card">
@@ -573,42 +573,42 @@ export default function Home() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
               <h3>Logistics & Transportation</h3>
-              <p>ยกระดับการกระจายสินค้าด้วยรถบรรทุกไฟฟ้าที่ประหยัดพลังงาน</p>
+              <p>{t("Elevate distribution with energy-efficient electric trucks.")}</p>
             </article>
             <article className="card industry-card">
               <div className="icon-wrapper" style={{ borderRadius: '50%', backgroundColor: 'var(--surface-alt)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4H2v16Z"></path></svg>
               </div>
               <h3>Manufacturing</h3>
-              <p>ระบบขนส่งภายในและภายนอกโรงงานที่ช่วยลดต้นทุน</p>
+              <p>{t("Internal and external factory transportation systems that help reduce costs.")}</p>
             </article>
             <article className="card industry-card">
               <div className="icon-wrapper" style={{ borderRadius: '50%', backgroundColor: 'var(--surface-alt)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               </div>
               <h3>Retail & E-commerce</h3>
-              <p>บริการจัดส่งสินค้าถึงมือลูกค้าที่รวดเร็วและเป็นมิตรกับสิ่งแวดล้อม</p>
+              <p>{t("Fast and eco-friendly customer delivery services.")}</p>
             </article>
             <article className="card industry-card">
               <div className="icon-wrapper" style={{ borderRadius: '50%', backgroundColor: 'var(--surface-alt)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 22 7 12 2"></polygon><rect x="4" y="7" width="16" height="15"></rect></svg>
               </div>
               <h3>Construction</h3>
-              <p>รถเชิงพาณิชย์สำหรับไซต์งานก่อสร้างที่ต้องการความทรหดทนทาน</p>
+              <p>{t("Commercial vehicles for construction sites that require toughness and durability.")}</p>
             </article>
             <article className="card industry-card">
               <div className="icon-wrapper" style={{ borderRadius: '50%', backgroundColor: 'var(--surface-alt)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 10 22 10"></polygon><line x1="6" y1="10" x2="6" y2="18"></line><line x1="18" y1="10" x2="18" y2="18"></line><line x1="12" y1="10" x2="12" y2="18"></line><line x1="2" y1="18" x2="22" y2="18"></line><line x1="2" y1="22" x2="22" y2="22"></line></svg>
               </div>
               <h3>Government Agencies</h3>
-              <p>ขับเคลื่อนโครงการและนโยบายด้วยยานยนต์ไฟฟ้าแบบครบวงจร</p>
+              <p>{t("Drive projects and policies with comprehensive electric vehicles.")}</p>
             </article>
             <article className="card industry-card">
               <div className="icon-wrapper" style={{ borderRadius: '50%', backgroundColor: 'var(--surface-alt)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
               </div>
               <h3>Large Enterprises</h3>
-              <p>โซลูชันรถประจำตำแหน่งและรถส่วนกลางเพื่อตอบโจทย์ ESG</p>
+              <p>{t("Position and pool car solutions to answer ESG goals.")}</p>
             </article>
           </div>
         </div>
@@ -619,7 +619,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-lg">
             <h2>Latest Articles & News</h2>
-            <p>ข้อมูลเชิงลึกและอัปเดตข่าวสารในแวดวงยานยนต์ไฟฟ้าเชิงพาณิชย์</p>
+            <p>{t("Insights and news updates in the Commercial EV industry")}</p>
           </div>
           <div className="grid grid-cols-3">
             <article className="article-card card" style={{padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column'}}>
@@ -627,9 +627,9 @@ export default function Home() {
               <div className="article-content" style={{padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1}}>
                 <h3 style={{marginTop: '0.5rem', marginBottom: '1rem', fontSize: '1.125rem'}}>PrimeMobility supports EV adoption for student bus services by Montri Transport Corporation PCL</h3>
                 <p style={{color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '1rem', flex: 1}}>
-                  มุ่งส่งเสริมการใช้รถยนต์ไฟฟ้าเชิงพาณิชย์ผ่านการขนส่งนักเรียนด้วยพลังงานไฟฟ้า บริษัท ไพร์มโมบิลิตี้ จำกัด สนับสนุนการเปลี่ยนมาใช้รถบัสไฟฟ้าในการให้บริการรถโรงเรียนของบริษัท มนตรีทรานสปอร์ต คอร์ปอเรชั่น จำกัด (มหาชน)
+                  Aiming to promote the use of commercial electric vehicles through electric student transportation, PrimeMobility Co., Ltd. supports the transition to electric buses for school bus services of Montri Transport Corporation PCL.
                 </p>
-                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>อ่านเพิ่มเติม</button>
+                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>{t("Read More")}</button>
               </div>
             </article>
             <article className="article-card card" style={{padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column'}}>
@@ -637,9 +637,9 @@ export default function Home() {
               <div className="article-content" style={{padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1}}>
                 <h3 style={{marginTop: '0.5rem', marginBottom: '1rem', fontSize: '1.125rem'}}>PrimeMobility partners with Panasonic Holdings to launch commercial EV battery diagnostics service in Thailand</h3>
                 <p style={{color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '1rem', flex: 1}}>
-                  ไพร์มโมบิลิตี้ ร่วมกับ พานาโซนิค โฮลดิ้งส์ เตรียมเปิดตัวบริการตรวจวินิจฉัยแบตเตอรี่รถยนต์ไฟฟ้า ในประเทศไทยภายในปี 2026 บริการนี้มุ่งเน้นการยกระดับประสิทธิภาพการบำรุงรักษารถฟลีทเชิงพาณิชย์
+                  PrimeMobility, in collaboration with Panasonic Holdings, prepares to launch an electric vehicle battery diagnostic service in Thailand by 2026. This service focuses on elevating the maintenance efficiency of commercial fleets.
                 </p>
-                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>อ่านเพิ่มเติม</button>
+                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>{t("Read More")}</button>
               </div>
             </article>
             <article className="article-card card" style={{padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column'}}>
@@ -647,9 +647,9 @@ export default function Home() {
               <div className="article-content" style={{padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1}}>
                 <h3 style={{marginTop: '0.5rem', marginBottom: '1rem', fontSize: '1.125rem'}}>Delivery of 23 electric pickup trucks to major airports in Thailand to drive the "Green Airport" initiative</h3>
                 <p style={{color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '1rem', flex: 1}}>
-                  บริษัท ไพร์มโมบิลิตี้ จำกัด ได้ส่งมอบรถกระบะไฟฟ้า จำนวน 23 คัน ภายใต้แบรนด์ RIDDARA ให้กับบริษัท ท่าอากาศยานไทย จำกัด (มหาชน) เพื่อใช้เป็นรถรักษาความปลอดภัยสำหรับตรวจการณ์บริเวณรันเวย์
+                  PrimeMobility Co., Ltd. has delivered 23 electric pickup trucks under the RIDDARA brand to Airports of Thailand PCL to be used as security patrol vehicles around the runway.
                 </p>
-                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>อ่านเพิ่มเติม</button>
+                <button className="btn-link" style={{alignSelf: 'flex-start', marginTop: 'auto'}}>{t("Read More")}</button>
               </div>
             </article>
           </div>
@@ -658,10 +658,10 @@ export default function Home() {
 
       {/* 11. FAQ (NEW) */}
       <Faq faqs={[
-        { question: "What is an EV Fleet Management System?", answer: "EV Fleet Management is a platform that allows businesses to track, manage, and optimize the use of electric vehicles comprehensively, including driving data, battery status, and costs." },
-        { question: "What services does PrimeMobility provide?", answer: "We provide end-to-end services, from commercial EV sourcing, insurance and maintenance, charging station installation, to smart fleet management software." },
-        { question: "How to get started?", answer: "You can click 'Contact Us' for a free consultation. Our team of experts will assess your needs and propose the best solution for your business." },
-        { question: "Is your service available nationwide?", answer: "Yes, we have a strong network of service centers and partners ready to assist your business nationwide." }
+        { question: t("What is an EV Fleet Management System?"), answer: t("EV Fleet Management is a platform that allows businesses to track, manage, and optimize the use of electric vehicles comprehensively, including driving data, battery status, and costs.") },
+        { question: t("What services does PrimeMobility provide?"), answer: t("We provide end-to-end services, from commercial EV sourcing, insurance and maintenance, charging station installation, to smart fleet management software.") },
+        { question: t("How to get started?"), answer: t("You can click 'Contact Us' for a free consultation. Our team of experts will assess your needs and propose the best solution for your business.") },
+        { question: t("Is your service available nationwide?"), answer: t("Yes, we have a strong network of service centers and partners ready to assist your business nationwide.") }
       ]} />
 
       {/* 12. Contact Form Section */}
