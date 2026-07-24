@@ -1,10 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ContactUs from '../components/ContactUs';
 import Faq from '../components/Faq';
+import truckImg from '../assets/truck.png';
+import vanImg from '../assets/van.png';
+import busImg from '../assets/bus.png';
 
 export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeEvImage, setActiveEvImage] = useState(0);
+  const [activeVehicleSlide, setActiveVehicleSlide] = useState(0);
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          const card = sliderRef.current.children[1];
+          const cardWidth = card ? card.offsetWidth + 16 : 300;
+          sliderRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSliderScroll = (e) => {
+    const scrollLeft = e.target.scrollLeft;
+    const card = e.target.children[1];
+    const cardWidth = card ? card.offsetWidth + 16 : 300;
+    const newIndex = Math.round(scrollLeft / cardWidth);
+    setActiveVehicleSlide(newIndex);
+  };
 
 
 
@@ -62,6 +91,174 @@ export default function Home() {
           </div>
           <div className="hero-trust">
             <small>ได้รับความไว้วางใจจากองค์กรชั้นนำ</small>
+          </div>
+        </div>
+      </section>
+
+      {/* Vehicle Slider Section */}
+      <section className="vehicle-slider section-spacing" style={{ paddingBottom: '2rem', paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
+        <div style={{ padding: '0 max(var(--spacing-md), calc((100% - 1224px) / 2))' }}>
+          <div className="text-center mb-lg">
+            <h2>Our Products</h2>
+            <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }}>
+              เพราะทุกธุรกิจมีความต้องการที่แตกต่าง เรามีโซลูชันลีสซิ่งที่ช่วยให้ธุรกิจของคุณลงทุนได้อย่างคุ้มค่า<br />ลดต้นทุน และพร้อมเติบโตสู่อนาคต
+            </p>
+          </div>
+        </div>
+        <div style={{ position: 'relative', width: '100%' }}>
+          <div 
+            ref={sliderRef}
+            onScroll={handleSliderScroll}
+            className="slider-track" 
+            style={{ 
+              display: 'flex', 
+              gap: '1rem', 
+              overflowX: 'auto', 
+              scrollSnapType: 'x mandatory',
+              paddingBottom: '1rem',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+          >
+            <style>{`
+              .slider-track {
+                padding: 0;
+              }
+              .slider-track::-webkit-scrollbar { display: none; }
+              .vehicle-slide-card {
+                flex: 0 0 calc(85% - 0.5rem);
+                aspect-ratio: 3 / 4;
+                min-height: 480px;
+                max-height: 75vh;
+                border-radius: var(--radius-lg);
+                scroll-snap-align: start;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 2.5rem;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+              }
+              @media (min-width: 768px) {
+                .vehicle-slide-card {
+                  flex: 0 0 calc(75% - 0.75rem);
+                  aspect-ratio: 16 / 9;
+                  min-height: 560px;
+                  max-height: 80vh;
+                }
+              }
+              .vehicle-slide-bg {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                transition: transform 0.5s ease;
+              }
+              .vehicle-slide-card:hover .vehicle-slide-bg {
+                transform: scale(1.05);
+              }
+              .vehicle-slide-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.85) 100%);
+              }
+              .vehicle-content {
+                position: relative;
+                z-index: 2;
+                color: white;
+              }
+            `}</style>
+            
+            {[
+              {
+                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                title: 'EV Truck',
+                subtitle: 'ครอบคลุมทั้งรถกระบะ รถบรรทุกขนาดเล็ก จนถึงรถหัวลากขนาดใหญ่ ตอบโจทย์การขนส่งทางไกลทั่วประเทศ',
+                image: truckImg
+              },
+              {
+                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                title: 'EV Van',
+                subtitle: 'รถตู้ไฟฟ้าเชิงพาณิชย์ ตอบโจทย์ทุกเป้าหมายทางธุรกิจ ทั้งในมุมรถรับส่งสำหรับองค์กรหรือดำเนินธุรกิจขนส่ง',
+                image: vanImg
+              },
+              {
+                category: 'ยานยนต์ไฟฟ้าเชิงพาณิชย์',
+                title: 'EV Bus',
+                subtitle: 'เปลี่ยนสวัสดิการรถรับส่งสำหรับ องค์กร ให้เป็น สวัสดิการเพื่อโลก ด้วยรถบัสไฟฟ้า ตอบโจทย์ทั้ง ลดต้นทุนค่าเชื้อเพลิง ส่งเสริมภาพลักษณ์ และส่งเสริมความยั่งยืน',
+                image: busImg
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="vehicle-slide-card">
+                <div className="vehicle-slide-bg" style={{ backgroundImage: `url(${item.image})` }}></div>
+                <div className="vehicle-slide-overlay"></div>
+                
+                <div style={{ position: 'absolute', top: '1.5rem', left: '2.5rem', color: 'rgba(255,255,255,0.95)', fontSize: '0.875rem', fontWeight: '500', zIndex: 2 }}>
+                  {item.category}
+                </div>
+                
+                <div className="vehicle-content">
+                  <h2 style={{ color: 'white', margin: 0, fontSize: '2.5rem', fontWeight: '700', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>{item.title}</h2>
+                  <p style={{ color: 'rgba(255,255,255,0.95)', margin: '0.25rem 0 1.5rem 0', fontSize: '1rem', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>{item.subtitle}</p>
+                  {/* Buttons removed per user request */}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Next Arrow */}
+          <button 
+            onClick={() => {
+              if (sliderRef.current) {
+                const card = sliderRef.current.children[1];
+                const cardWidth = card ? card.offsetWidth + 16 : 300;
+                sliderRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+              }
+            }}
+            style={{
+              position: 'absolute',
+              right: '2rem',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '40px',
+              height: '40px',
+              borderRadius: '8px',
+              backgroundColor: 'rgba(255,255,255,0.85)',
+              backdropFilter: 'blur(4px)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+              color: '#333'
+            }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          
+          {/* Pagination Dots */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1.5rem' }}>
+            {[0, 1, 2].map((idx) => (
+              <button 
+                key={idx}
+                onClick={() => {
+                  if (sliderRef.current) {
+                    const card = sliderRef.current.children[1];
+                    const cardWidth = card ? card.offsetWidth + 16 : 300;
+                    sliderRef.current.scrollTo({ left: cardWidth * idx, behavior: 'smooth' });
+                    setActiveVehicleSlide(idx);
+                  }
+                }}
+                style={{
+                  width: '8px', height: '8px', borderRadius: '50%', padding: 0,
+                  backgroundColor: activeVehicleSlide === idx ? '#333' : '#cbd5e1',
+                  border: 'none', cursor: 'pointer', transition: 'all 0.3s'
+                }}
+              />
+            ))}
           </div>
         </div>
       </section>
