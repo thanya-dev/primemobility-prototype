@@ -30,6 +30,8 @@ function Navigation() {
       <div className="nav-links">
         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
         <Link to="/about-us" className={location.pathname === '/about-us' ? 'active' : ''}>About Us</Link>
+        <a href="https://primemobility.co.th/en/our-service/">Our Services</a>
+        <a href="https://primemobility.co.th/en/articles/">News &amp; Articles</a>
         <a href="https://primemobility.co.th/contact-2/" target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{textDecoration: 'none'}}>Get Started</a>
       </div>
     </nav>
