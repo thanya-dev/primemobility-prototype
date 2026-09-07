@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "i18next": "^26.3.6",
+    "lucide-react": "^1.42.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-i18next": "^17.0.11",
@@ -21,6 +22,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "sharp": "^0.35.4",
     "vite": "^8.1.1"
   }
 }

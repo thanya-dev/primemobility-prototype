@@ -84,8 +84,32 @@ function Navigation() {
 }
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+    
+    if (i18n.language === 'th') {
+      document.title = 'PrimeMobility - โซลูชันยานยนต์ไฟฟ้าเชิงพาณิชย์ครบวงจร';
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = "โซลูชันยานยนต์ไฟฟ้าเชิงพาณิชย์ครบวงจร ช่วยลดต้นทุน เพิ่มประสิทธิภาพการบริหาร Fleet และเปลี่ยนผ่านสู่พลังงานสะอาดอย่างมั่นใจ";
+    } else {
+      document.title = 'PrimeMobility - End-to-End Commercial EV Fleet Solutions';
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = "Transform your operations with end-to-end commercial EV fleet solutions designed to reduce costs, improve fleet efficiency, and support a confident transition.";
+    }
+  }, [i18n.language]);
+
   return (
     <Router>
       <ScrollToTop />
