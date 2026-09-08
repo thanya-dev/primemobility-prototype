@@ -44,14 +44,14 @@ export default function StrategicInvestors() {
             {t('Strategic investors description')}
           </p>
         </div>
-        
+
         <div className="si-grid">
           {investors.map((investor, index) => (
             <div className="si-card" key={index}>
               <div className="si-logo-wrapper">
-                <img 
-                  src={investor.logo} 
-                  alt={investor.alt} 
+                <img
+                  src={investor.logo}
+                  alt={investor.alt}
                   className="si-logo"
                   style={{ transform: investor.scale ? `scale(${investor.scale})` : 'none' }}
                   onError={handleImageError}
@@ -71,7 +71,7 @@ export default function StrategicInvestors() {
         }
 
         .strategic-investors .container {
-          max-width: 1200px;
+          max-width: 1280px;
           margin: 0 auto;
         }
 

@@ -50,7 +50,7 @@ export default function EndToEndJourney() {
         {/* Header */}
         <div className="journey-header">
           <span className="eyebrow">{t('THE END-TO-END JOURNEY')}</span>
-          <h2 className="journey-title">{t('From Plan to Performance')}</h2>
+          <h2 className="journey-title">{t('Transition Process')}</h2>
           <p className="journey-description">
             {t('A seamless journey, with you at every step.')}
           </p>
