@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 
-function ContactUs() {
+function ContactUs({ isContactPage = false }) {
   const { t } = useTranslation();
   return (
-    <section className="contact-section section-spacing" id="contact" style={{ backgroundColor: '#162a59', color: '#ffffff' }}>
+    <section className="contact-section section-spacing" id="contact" style={{ backgroundColor: isContactPage ? '#FFFFFF' : '#162a59', color: isContactPage ? 'var(--text-main)' : '#ffffff' }}>
       <div className="container" style={{ maxWidth: '1224px', margin: '0 auto' }}>
         <div className="grid grid-cols-2" style={{ gap: '3rem', alignItems: 'flex-start' }}>
           {/* Contact Info (Left) */}
           <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ marginBottom: '1rem' }}>
-              <h2 style={{ color: '#ffffff' }}>{t("Contact Us")}</h2>
+              <h2 style={{ color: isContactPage ? 'var(--primary)' : '#ffffff' }}>{t("Contact Us")}</h2>
               <img 
-                src="https://primemobility.co.th/wp-content/uploads/2025/03/PrimeMobility-WH.png" 
+                src={isContactPage ? "https://primemobility.co.th/wp-content/uploads/2025/03/PrimeMobility.png" : "https://primemobility.co.th/wp-content/uploads/2025/03/PrimeMobility-WH.png"} 
                 alt="PrimeMobility Logo" 
                 style={{ maxWidth: '250px', marginTop: '1.5rem', display: 'block' }}
                 loading="lazy" 
@@ -20,24 +20,28 @@ function ContactUs() {
             </div>
             <div>
               <h3 style={{ color: 'var(--accent)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>Customer Service</h3>
-              <p style={{ margin: 0, fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)' }}>080-056-1568</p>
+              <p style={{ margin: 0, fontSize: '1.1rem' }}>
+                <a href="tel:0800561568" style={{ color: isContactPage ? 'var(--text-muted)' : 'rgba(255,255,255,0.9)', textDecoration: 'underline' }}>080-056-1568</a>
+              </p>
             </div>
             
             <div>
               <h3 style={{ color: 'var(--accent)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>{t("PrimeMobility Co., Ltd.")}</h3>
-              <p style={{ margin: 0, fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.6 }}>
+              <p style={{ margin: 0, fontSize: '1.1rem', color: isContactPage ? 'var(--text-muted)' : 'rgba(255,255,255,0.9)', lineHeight: 1.6 }}>
                 129 JLK Tower, 14th Floor, Room 1407, Sukhumvit Road, Khlong Toei Nuea, Watthana, Bangkok 10110, Thailand
               </p>
             </div>
 
             <div>
               <h3 style={{ color: 'var(--accent)', marginBottom: '0.5rem', fontSize: '1.25rem' }}>Sales Inquiry</h3>
-              <p style={{ margin: 0, fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)' }}>sales@primemobility.co.th</p>
+              <p style={{ margin: 0, fontSize: '1.1rem' }}>
+                <a href="mailto:sales@primemobility.co.th" style={{ color: isContactPage ? 'var(--text-muted)' : 'rgba(255,255,255,0.9)', textDecoration: 'underline' }}>sales@primemobility.co.th</a>
+              </p>
             </div>
           </div>
 
           {/* Form (Right) */}
-          <div className="contact-form-container card" style={{ padding: '2.5rem', backgroundColor: 'var(--surface-alt)' }}>
+          <div className="contact-form-container card" style={{ padding: '2.5rem', backgroundColor: isContactPage ? 'var(--surface-alt)' : 'var(--surface-alt)' }}>
             <h3 style={{ marginBottom: '1rem', fontSize: '1.5rem', color: 'var(--primary)' }}>{t('Get in Touch')}</h3>
             <p style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>
               <span dangerouslySetInnerHTML={{ __html: t('Please fill out the form below or contact us by phone or email.<br/>') }} />

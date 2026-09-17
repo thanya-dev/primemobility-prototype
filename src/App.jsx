@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
+import OurService from './pages/OurService';
+import Contact from './pages/Contact';
+import Articles from './pages/Articles';
 import './index.css';
 
 function ScrollToTop() {
@@ -60,8 +63,9 @@ function Navigation() {
       <div className={`nav-links mobile-${showMenu ? 'show' : 'hide'}`}>
         <Link to="/" className={location.pathname === '/' ? 'active' : ''}>{t('Home')}</Link>
         <Link to="/about-us" className={location.pathname === '/about-us' ? 'active' : ''}>{t('About Us')}</Link>
-        <a href="https://primemobility.co.th/en/our-service/">{t('Our Services')}</a>
-        <a href="https://primemobility.co.th/en/articles/">{t('News & Articles')}</a>
+        <Link to="/our-service" className={location.pathname === '/our-service' ? 'active' : ''}>{t('Our Services')}</Link>
+        <Link to="/articles" className={location.pathname === '/articles' ? 'active' : ''}>{t('News & Articles')}</Link>
+        <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>{t('Contact Us')}</Link>
         <a href="https://primemobility.co.th/contact-2/" target="_blank" rel="noopener noreferrer" className="btn btn-accent" style={{textDecoration: 'none'}}>{t('Get Started')}</a>
         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginLeft: '1rem' }}>
           <button 
@@ -119,6 +123,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/our-service" element={<OurService />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
 
         <footer className="footer">

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import ContactUs from '../components/ContactUs';
 import Faq from '../components/Faq';
 import WhyPrimeMobility from '../components/WhyPrimeMobility';
@@ -124,7 +125,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <a href="https://primemobility.co.th/contact-2/" target="_blank" rel="noopener noreferrer" className="btn btn-accent">{t("Talk to Our Experts")}</a>
-              <a href="https://primemobility.co.th/our-service/" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{t("Explore Our Services")}</a>
+              <Link to="/our-service" className="btn btn-outline">{t("Explore Our Services")}</Link>
             </div>
           </div>
         </div>

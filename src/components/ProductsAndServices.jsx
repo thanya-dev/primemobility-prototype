@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import truckImg from '../assets/services/leasing.png';
 import vanImg from '../assets/services/charging.png';
@@ -17,7 +18,7 @@ export default function ProductsAndServices() {
       title: 'Vehicle & Leasing',
       subtitle: 'Flexible commercial EV leasing tailored to your business.',
       image: truckImg,
-      link: 'https://primemobility.co.th/en/our-service/',
+      link: '/our-service',
       featured: true,
     },
     {
@@ -25,7 +26,7 @@ export default function ProductsAndServices() {
       title: 'Charging Solution',
       subtitle: 'Reliable charging infrastructure for every operation.',
       image: vanImg,
-      link: 'https://primemobility.co.th/en/our-service/',
+      link: '/our-service',
       featured: false,
     },
     {
@@ -33,7 +34,7 @@ export default function ProductsAndServices() {
       title: 'eFMS',
       subtitle: 'Manage fleet operations with real-time data.',
       image: heroImg,
-      link: 'https://primemobility.co.th/en/our-service/',
+      link: '/our-service',
       featured: false,
     },
     {
@@ -41,7 +42,7 @@ export default function ProductsAndServices() {
       title: 'Maintenance',
       subtitle: 'Comprehensive maintenance and operational support.',
       image: busImg,
-      link: 'https://primemobility.co.th/en/our-service/',
+      link: '/our-service',
       featured: false,
     },
     {
@@ -49,15 +50,15 @@ export default function ProductsAndServices() {
       title: 'Consulting',
       subtitle: 'Plan the right EV fleet solution for your business.',
       image: heroMobileImg,
-      link: 'https://primemobility.co.th/en/our-service/',
+      link: '/our-service',
       featured: false,
     }
   ];
 
   const renderCard = (service) => (
-    <a
+    <Link
       key={service.id}
-      href={service.link}
+      to={service.link}
       className={`service-card ${service.featured ? 'featured-card' : 'normal-card'}`}
       aria-label={`View ${t(service.title)} service`}
     >
@@ -73,7 +74,7 @@ export default function ProductsAndServices() {
           <ArrowRight size={24} strokeWidth={2} />
         </div>
       </div>
-    </a>
+    </Link>
   );
 
   return (
@@ -86,10 +87,10 @@ export default function ProductsAndServices() {
             <h2 className="ps-title">{t('Everything Your Fleet Needs, Working Together.')}</h2>
           </div>
           <div className="ps-header-right">
-            <a href="#" className="ps-cta">
+            <Link to="/our-service" className="ps-cta">
               {t('Explore Our Services')}
               <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -113,10 +114,10 @@ export default function ProductsAndServices() {
           {services.map(renderCard)}
 
           <div className="ps-mobile-cta">
-            <a href="#" className="ps-cta full-width">
+            <Link to="/our-service" className="ps-cta full-width">
               {t('Explore Our Services')}
               <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

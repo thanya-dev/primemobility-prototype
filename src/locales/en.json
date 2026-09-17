@@ -252,6 +252,16 @@
     "Keishi Kinoshita": "Keishi Kinoshita",
     "President & CEO": "President & CEO",
     "Director Name Placeholder": "Director Name",
-    "Position Placeholder": "Position"
+    "Position Placeholder": "Position",
+    "OurService.service1.title": "Vehicle Procurement and Leasing",
+    "OurService.service1.desc": "We can procure vehicles <span class=\"text-accent\">according to our customers’ requirements</span>. We offer a wide lineup of vehicles <span class=\"text-accent\">not limited to specific manufacturers or models</span> from any country (ranging from <span class=\"text-accent\">passenger cars to trucks</span>). In addition to the vehicle leasing itself, we can provide <span class=\"text-accent\">Operational Lease services</span> that include various services as listed below",
+    "OurService.service2.title": "EV Charger and Installation",
+    "OurService.service2.desc": "In addition to our expertise in charging equipment, we collaborate with numerous <span class=\"text-accent\">CPOs (Charging Point Operators) throughout Thailand</span>. We can help select the <span class=\"text-accent\">appropriate number and brands of chargers</span> and <span class=\"text-accent\">provide installation services</span> as needed. Please consider including charging equipment as part of the solution, as it is <span class=\"text-accent\">essential for the smooth and efficient adoption of electric vehicles</span>.",
+    "OurService.service3.title": "Insurance / Maintenance",
+    "OurService.service3.desc": "To ensure we provide you with a safe vehicle with a guranteed insurance in the case of accident, we offer you both <span class=\"text-accent\">insurance service and periodical maintenance</span>. we have established a <span class=\"text-accent\">comprehensive system</span> to prepare for any <span class=\"text-accent\">accidents, damage, or malfunctions</span> that may occur. We support operations that <span class=\"text-accent\">will not interfere with your company’s business activities</span>.",
+    "OurService.service4.title": "Fleet Management System",
+    "OurService.service4.desc": "With the fleet management system developed by PrimeMobility, you can <span class=\"text-accent\">centrally manage essential information</span> such as the <span class=\"text-accent\">location of your company’s vehicles</span>, <span class=\"text-accent\">driver performance scoring</span>, and in the case of electric vehicles, <span class=\"text-accent\">remaining battery charge</span>. The implementation of this system will help improve the efficiency of your business operations.",
+    "OurService.hero.title": "Our Services",
+    "OurService.hero.subtitle": "Complete solutions for your transition to commercial electric vehicles."
   }
 }
