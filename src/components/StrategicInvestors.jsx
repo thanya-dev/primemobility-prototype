@@ -66,7 +66,7 @@ export default function StrategicInvestors() {
 
       <style>{`
         .strategic-investors {
-          background-color: var(--surface-alt);
+          background-color: var(--primary);
           width: 100%;
         }
 
@@ -94,7 +94,7 @@ export default function StrategicInvestors() {
         }
 
         .si-headline {
-          color: var(--primary);
+          color: #ffffff;
           margin-bottom: 1rem;
           font-size: 1.625rem; /* ~26px on mobile */
           font-weight: 700;
@@ -102,7 +102,7 @@ export default function StrategicInvestors() {
         }
 
         .si-supporting-text {
-          color: var(--text-muted);
+          color: rgba(255, 255, 255, 0.8);
           font-size: 1rem;
           line-height: 1.6;
           margin: 0 auto;

@@ -137,12 +137,12 @@ export default function Home() {
       <ProductsAndServices />
 
       {/* Vehicle Slider Section */}
-      <section className="vehicle-slider section-spacing" style={{ paddingBottom: '2rem', paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
+      <section className="vehicle-slider section-spacing" style={{ backgroundColor: 'var(--primary)', paddingBottom: '2rem', paddingLeft: 0, paddingRight: 0, overflow: 'hidden' }}>
         <div style={{ padding: '0 max(var(--spacing-md), calc((100% - 1224px) / 2))' }}>
           <div className="text-center mb-lg">
             <span className="eyebrow" style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'block', marginBottom: '0.75rem', fontSize: '0.875rem' }}>{t("OUR VEHICLE LINEUP")}</span>
-            <h2>{t("Right Vehicle for Every Business")}</h2>
-            <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t("Every business has different usage patterns. PrimeMobility helps select Commercial EVs suited to the operational characteristics, routes, and organizational goals, ensuring every fleet is ready for real-world use and creates long-term value for the business.") }} />
+            <h2 style={{ color: '#ffffff' }}>{t("Right Vehicle for Every Business")}</h2>
+            <p style={{ maxWidth: '800px', margin: '0 auto', color: 'rgba(255, 255, 255, 0.8)' }} dangerouslySetInnerHTML={{ __html: t("Every business has different usage patterns. PrimeMobility helps select Commercial EVs suited to the operational characteristics, routes, and organizational goals, ensuring every fleet is ready for real-world use and creates long-term value for the business.") }} />
           </div>
         </div>
         <div style={{ position: 'relative', width: '100%' }}>

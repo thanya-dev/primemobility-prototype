@@ -176,7 +176,7 @@ export default function WhyPrimeMobility() {
         }
 
         .why-title {
-          color: #ffffff;
+          color: var(--accent);
           font-size: 1.125rem;
           font-weight: 700;
           margin: 0 0 0.5rem 0;

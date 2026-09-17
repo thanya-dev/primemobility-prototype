@@ -4,13 +4,13 @@ import React from 'react';
 function ContactUs() {
   const { t } = useTranslation();
   return (
-    <section className="contact-section section-spacing section-secondary" id="contact">
+    <section className="contact-section section-spacing" id="contact" style={{ backgroundColor: '#162a59', color: '#ffffff' }}>
       <div className="container" style={{ maxWidth: '1224px', margin: '0 auto' }}>
         <div className="grid grid-cols-2" style={{ gap: '3rem', alignItems: 'flex-start' }}>
           {/* Contact Info (Left) */}
           <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ marginBottom: '1rem' }}>
-              <h2>{t("Contact Us")}</h2>
+              <h2 style={{ color: '#ffffff' }}>{t("Contact Us")}</h2>
               <img 
                 src="https://primemobility.co.th/wp-content/uploads/2025/03/PrimeMobility-WH.png" 
                 alt="PrimeMobility Logo" 

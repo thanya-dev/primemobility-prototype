@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
-import { ChevronRight, Target, Eye, Truck, Leaf, Shield, Cpu, Factory } from 'lucide-react';
-import orgChartImage from '../assets/about-us/organization-chart.jpg';
+import { ChevronRight, Target, Truck, Leaf, Shield, Cpu, Factory } from 'lucide-react';
 import placeholderImage from '../assets/about-us/placeholder.png';
 import ContactUs from '../components/ContactUs';
 import Faq from '../components/Faq';
@@ -13,7 +12,6 @@ import aboutImg from '../assets/about-us/about.png';
 
 export default function AboutUs() {
   const { t } = useTranslation();
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [selectedDirector, setSelectedDirector] = useState(null);
 
   // Handle Esc key to close modal
@@ -29,14 +27,12 @@ export default function AboutUs() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedDirector]);
 
-  // Configuration for Organization Chart Image
-  const orgChartImageUrl = orgChartImage;
 
   // Board of Directors Data Placeholder
   const boardOfDirectors = [
     {
       id: 1,
-      name: t("Keiichi Kinoshita"),
+      name: t("Keishi Kinoshita"),
       position: t("President & CEO"),
       representativeOf: "",
       image: "https://i.postimg.cc/PJVRGnrG/Image-721-683x1024.jpg",
@@ -150,7 +146,7 @@ export default function AboutUs() {
 
         <style>{`
           .company-info-editorial {
-            background-color: var(--surface-main);
+            background-color: var(--primary);
             width: 100%;
           }
           
@@ -196,14 +192,14 @@ export default function AboutUs() {
           }
           
           .cie-headline {
-            color: var(--primary);
+            color: #ffffff;
             margin-bottom: 1.25rem;
             font-size: 2.25rem;
             line-height: 1.2;
           }
           
           .cie-supporting-text {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 1.125rem;
             line-height: 1.6;
             margin-bottom: 2.5rem;
@@ -218,23 +214,23 @@ export default function AboutUs() {
             display: flex;
             flex-direction: column;
             padding: 1.25rem 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           }
           
           .cie-row:first-child {
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
           }
           
           .cie-label {
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 0.5rem;
             font-weight: 600;
           }
           
           .cie-value {
             font-size: 1.125rem;
-            color: var(--text-main);
+            color: #ffffff;
             font-weight: 500;
             line-height: 1.5;
           }
@@ -383,26 +379,26 @@ export default function AboutUs() {
       </section>
 
       {/* 5. Core Values (NEW) */}
-      <section className="core-values">
+      <section className="core-values section-spacing" style={{ backgroundColor: 'var(--primary)', color: '#ffffff' }}>
         <div className="text-center" style={{ marginBottom: 'var(--spacing-md)' }}>
-          <h2>{t('Our Core Values')}</h2>
+          <h2 style={{ color: '#ffffff' }}>{t('Our Core Values')}</h2>
         </div>
-        <div className="features-grid">
-          <div className="card value-card" style={{ backgroundColor: 'var(--surface-alt)', color: 'var(--text-main)' }}>
-            <h3 style={{ color: 'var(--primary)' }}>{t('Trusted Partnership')}</h3>
-            <p style={{ color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t("Trusted Partnership description") }}></p>
+        <div className="features-grid container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--spacing-md)' }}>
+          <div className="card value-card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <h3 style={{ color: 'var(--accent)' }}>{t('Trusted Partnership')}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)' }} dangerouslySetInnerHTML={{ __html: t("Trusted Partnership description") }}></p>
           </div>
-          <div className="card value-card" style={{ backgroundColor: 'var(--surface-alt)', color: 'var(--text-main)' }}>
-            <h3 style={{ color: 'var(--primary)' }}>{t('EV Expertise')}</h3>
-            <p style={{ color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t("EV Expertise description") }}></p>
+          <div className="card value-card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <h3 style={{ color: 'var(--accent)' }}>{t('EV Expertise')}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)' }} dangerouslySetInnerHTML={{ __html: t("EV Expertise description") }}></p>
           </div>
-          <div className="card value-card" style={{ backgroundColor: 'var(--surface-alt)', color: 'var(--text-main)' }}>
-            <h3 style={{ color: 'var(--primary)' }}>{t('Business Value')}</h3>
-            <p style={{ color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t("Business Value description") }}></p>
+          <div className="card value-card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <h3 style={{ color: 'var(--accent)' }}>{t('Business Value')}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)' }} dangerouslySetInnerHTML={{ __html: t("Business Value description") }}></p>
           </div>
-          <div className="card value-card" style={{ backgroundColor: 'var(--surface-alt)', color: 'var(--text-main)' }}>
-            <h3 style={{ color: 'var(--primary)' }}>{t('Long-Term Support')}</h3>
-            <p style={{ color: 'var(--text-muted)' }} dangerouslySetInnerHTML={{ __html: t("Long-Term Support description") }}></p>
+          <div className="card value-card" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#ffffff', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <h3 style={{ color: 'var(--accent)' }}>{t('Long-Term Support')}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.85)' }} dangerouslySetInnerHTML={{ __html: t("Long-Term Support description") }}></p>
           </div>
         </div>
       </section>
@@ -662,7 +658,7 @@ export default function AboutUs() {
       </section>
 
       {/* 6. Leadership Message */}
-      <section className="leadership section-secondary">
+      <section className="leadership section-secondary" style={{ backgroundColor: 'var(--primary)', color: '#ffffff' }}>
         <div className="leadership-container">
           <div className="ceo-profile">
             <img
@@ -673,12 +669,12 @@ export default function AboutUs() {
             />
             <div className="ceo-info">
               <strong>{t("Keishi Kinoshita")}</strong>
-              <p>{t("President and Chief Executive Officer")}</p>
+              <p style={{ color: 'rgba(255, 255, 255, 0.85)' }}>{t("President and Chief Executive Officer")}</p>
             </div>
           </div>
 
           <article className="ceo-message">
-            <h2 style={{ marginBottom: 'var(--spacing-md)' }}>{t('CEO Greeting')}</h2>
+            <h2 style={{ marginBottom: 'var(--spacing-md)', color: '#ffffff' }}>{t('CEO Greeting')}</h2>
 
             <p dangerouslySetInnerHTML={{ __html: t('On behalf of <strong>Prime Mobility</strong>, I am deeply honored to welcome everyone to our <strong>EV Fleet Management System</strong>, a provider of <strong>comprehensive commercial electric vehicle fleet management solutions</strong> aimed at supporting organizations in their transition to efficient and sustainable transportation.') }} />
             <p dangerouslySetInnerHTML={{ __html: t('Today, the transportation industry is entering the era of electric vehicles and digital technology. We believe that the future of fleet management must be <strong>Smart, Connected, and Data-Driven</strong> to help organizations tangibly <strong>reduce operational costs, increase vehicle utilization efficiency, and reduce environmental impact</strong>.') }} />
@@ -735,168 +731,11 @@ export default function AboutUs() {
       {/* 11. Partners (Replaced from Homepage) */}
       <Partners />
 
-      {/* Organization Structure */}
-      <section className="org-structure section-spacing" style={{ backgroundColor: 'var(--surface-main)' }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--spacing-md)' }}>
-          <div className="org-header">
-            <span className="eyebrow" style={{ color: 'var(--accent)', fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'block', marginBottom: '1rem', fontSize: '0.875rem' }}>
-              {t('ORGANIZATION STRUCTURE')}
-            </span>
-            <h2 className="org-headline">{t('Organization Structure')}</h2>
-            <p className="org-supporting-text">
-              {t('PrimeMobility brings together expertise across key functions to support efficient operations and deliver integrated commercial EV solutions.')}
-            </p>
-          </div>
-
-          <div className="org-chart-container" onClick={() => setIsLightboxOpen(true)}>
-            <img
-              src={orgChartImageUrl}
-              alt={t('PrimeMobility organization structure chart')}
-              className="org-chart-image"
-              loading="lazy"
-            />
-            <div className="org-zoom-hint">
-              <Eye size={20} style={{ marginRight: '8px' }} />
-              <span>Click to enlarge</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Lightbox for Mobile/Enlarging */}
-        {isLightboxOpen && (
-          <div className="org-lightbox" onClick={() => setIsLightboxOpen(false)}>
-            <button className="org-lightbox-close" aria-label={t('Close image')} onClick={(e) => { e.stopPropagation(); setIsLightboxOpen(false); }}>
-              &times;
-            </button>
-            <div className="org-lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <img
-                src={orgChartImageUrl}
-                alt={t('PrimeMobility organization structure chart')}
-                className="org-lightbox-image"
-              />
-            </div>
-          </div>
-        )}
-
-        <style>{`
-          .org-header {
-            max-width: 720px;
-            margin-bottom: 3.5rem; /* 56px */
-          }
-          .org-headline {
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            font-size: 2rem;
-            line-height: 1.2;
-          }
-          @media (min-width: 768px) {
-            .org-headline {
-              font-size: 2.25rem;
-            }
-          }
-          .org-supporting-text {
-            color: var(--text-muted);
-            font-size: 1.125rem;
-            line-height: 1.6;
-            margin: 0;
-          }
-          .org-chart-container {
-            width: 100%;
-            text-align: center;
-            cursor: pointer;
-            position: relative;
-            background-color: #ffffff;
-            border-radius: var(--radius-lg);
-            padding: 2rem 1rem;
-            border: 1px solid var(--border-color);
-            transition: box-shadow 0.2s ease;
-          }
-          .org-chart-container:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-          }
-          @media (min-width: 1024px) {
-            .org-chart-container {
-              padding: 3rem;
-            }
-          }
-          .org-chart-image {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
-          }
-          .org-zoom-hint {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            background: var(--surface-alt);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-          }
-          @media (min-width: 768px) {
-            .org-zoom-hint {
-              display: none;
-            }
-          }
-          
-          /* Lightbox Styles */
-          .org-lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-          }
-          .org-lightbox-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2.5rem;
-            line-height: 1;
-            cursor: pointer;
-            z-index: 10000;
-            padding: 0;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .org-lightbox-content {
-            width: 95%;
-            height: 95%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: auto;
-            cursor: default;
-          }
-          .org-lightbox-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-          }
-        `}</style>
-      </section>
 
       {/* 12. Company Gallery (NEW) */}
-      <section className="company-gallery">
+      <section className="company-gallery section-spacing" style={{ backgroundColor: 'var(--primary)', color: '#ffffff' }}>
         <div className="text-center" style={{ marginBottom: 'var(--spacing-md)' }}>
-          <h2>{t('Company Gallery')}</h2>
+          <h2 style={{ color: '#ffffff' }}>{t('Company Gallery')}</h2>
         </div>
         <div className="gallery-grid">
           <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office" loading="lazy" className="gallery-item" />

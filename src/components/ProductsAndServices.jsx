@@ -123,7 +123,7 @@ export default function ProductsAndServices() {
 
       <style>{`
         .products-services {
-          background-color: #F8FAFC; /* Light blue-gray */
+          background-color: var(--primary); /* Navy */
           padding: 64px 1.25rem;
         }
 
@@ -141,7 +141,7 @@ export default function ProductsAndServices() {
         }
 
         .products-services .eyebrow {
-          color: #64748B;
+          color: var(--accent);
           font-weight: 600;
           letter-spacing: 0.05em;
           text-transform: uppercase;
@@ -151,7 +151,7 @@ export default function ProductsAndServices() {
         }
 
         .ps-title {
-          color: #0E1B3D;
+          color: #ffffff;
           margin: 0;
           font-size: 2.5rem;
           font-weight: 700;
@@ -169,7 +169,7 @@ export default function ProductsAndServices() {
         }
         
         .ps-cta:hover {
-          color: #0E1B3D;
+          color: #ffffff;
         }
 
         /* Grid Framework */
